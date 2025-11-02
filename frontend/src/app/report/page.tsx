@@ -31,8 +31,8 @@ export default function ReportPage() {
   }
 
   return (
-    <main className="min-h-screen py-16">
-      <div className="container mx-auto px-4 max-w-xl">
+    <main className="flex flex-col min-h py-16">
+      <div className="max-w-2xs px-4 ml-0 sm:ml-4 lg:ml-8">
         <h1 className="text-2xl font-bold mb-4">Report Lost or Found Item</h1>
         <p className="text-muted-foreground mb-6">Fill in the details below to report an item.</p>
 

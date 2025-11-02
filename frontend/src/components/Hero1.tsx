@@ -42,73 +42,74 @@ const Hero1 = ({
   const loading = status === "loading";
 
   return (
-    <section className="min-h-screen flex items-center justify-center py-16">
-      <div className="container mx-auto px-4">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+    <section className="max-h-screen flex items-start mt-8 sm:mt-12 lg:mt-32 justify-start pt-6">
+      <div className="mx-auto max-w-screen-2xl px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-6 gap-6">
           
           {/* Left Column */}
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            {/* {badge && (
-              <Badge variant="outline" className="mb-4">
-                {badge}
-                <ArrowUpRight className="ml-2 h-4 w-4" />
-              </Badge>
-            )} */}
-            <h1 className="text-4xl font-bold leading-tight lg:text-6xl mb-6">
-              {heading}
-            </h1>
-            <p className="text-muted-foreground mb-8 max-w-xl lg:text-lg">
-              {description}
-            </p>
+          <div className="text-4xl md:text-6xl lg:text-7xl font-bold col-span-1 sm:col-span-6 sm:justify-self-center w-fit text-center">
+            {heading}
 
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
-              {loading ? (
-                <span className="text-sm text-gray-500">Loading...</span>
-              ) : session ? (
-                <>
-                  <Button asChild variant="default" className="w-full sm:w-auto">
-                    <Link href="/lost">Lost</Link>
-                  </Button>
-                  <Button asChild variant="outline" className="w-full sm:w-auto">
-                    <Link href="/found">Found</Link>
-                  </Button>
-                  <Button asChild variant="ghost" className="w-full sm:w-auto">
-                    <Link href="/report">Report Lost/Found</Link>
-                  </Button>
-                </>
-              ) : (
-                <>
-                  {buttons.primary && (
-                    <Button asChild variant="default" className="w-full sm:w-auto">
-                      <a href={buttons.primary.url}>{buttons.primary.text}</a>
-                    </Button>
-                  )}
-                  {buttons.secondary && (
-                    <Button asChild variant="outline" className="w-full sm:w-auto">
-                      <a href={buttons.secondary.url}>
-                        {buttons.secondary.text}
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </a>
-                    </Button>
-                  )}
-                </>
-              )}
-            </div>
           </div>
-
-          {/* Right Column */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="text-muted-foreground mb-8 max-w-xl lg:text-2xl lg col-span-1 sm:col-span-6 sm:justify-self-center w-fit text-center">
+            {description}
+          </div>
+          <div className="col-span-1 sm:col-span-6 sm:justify-self-center sm:-mt-10 pb-4">
             <img
               src={image.src}
               alt={image.alt}
-              className="max-h-96 w-full rounded-md object-cover"
+              className="h-48 w-auto rounded-md object-contain mx-auto"
             />
           </div>
+      
 
         </div>
-      </div>
-    </section>
+
+        {/* Large action buttons below the hero — three equal columns */}
+          <div className=" w-full sm:mt-12">
+          {loading ? (
+            <span className="px-4 sm:px-40 lg:px-30 text-sm text-gray-500">Loading...</span>
+          ) : session ? (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-[100px] items-stretch">
+              <Button asChild className="text-xl group p-0 border border-blue-500 items-center justify-center rounded bg-white text-blue-500 hover:bg-gray-200 active:bg-blue-800 transition">
+                <Link href="/lost">Search Lost Items</Link>
+              </Button>
+              <Button asChild className="text-xl group p-0 border border-blue-500 items-center justify-center rounded bg-white text-blue-500 hover:bg-gray-200 active:bg-blue-800 transition">
+                <Link href="/found">Search Found Items</Link>
+              </Button>
+              <Button asChild className="text-xl group p-0 border border-blue-500 items-center justify-center rounded bg-white text-blue-500 hover:bg-gray-200 active:bg-blue-800 transition ">
+                <Link href="/report">Report Lost/Found</Link>
+              </Button>
+            </div>
+          ) : (
+            <div className="flex flex-col sm:flex-row gap-4 w-full justify-center mt-4">
+              {buttons.primary && (
+                <Button asChild variant="default" className="w-full sm:w-auto">
+                  <a href={buttons.primary.url}>{buttons.primary.text}</a>
+                </Button>
+              )}
+              {buttons.secondary && (
+                <Button asChild variant="outline" className="w-full sm:w-auto">
+                  <a href={buttons.secondary.url}>
+                    {buttons.secondary.text}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              )}
+            </div>
+          )}
+        </div>
+       </div>
+       
+     </section>
+  );
+};
+
+export const Box = () => {
+  return (
+    <div className="w-[363px] h-[268px]">
+      <div className="fixed top-[568px] left-[454px] w-[363px] h-[268px] bg-[#f3eded] rounded-xl shadow-[0px_0px_0px_transparent,0px_0px_0px_transparent,0px_0px_0px_transparent,0px_0px_0px_transparent]" />
+    </div>
   );
 };
 
