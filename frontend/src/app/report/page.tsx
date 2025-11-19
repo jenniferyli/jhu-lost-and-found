@@ -96,7 +96,7 @@ export default function ReportPage() {
           </div>
 
           <div>
-            <label> Optional Img upload </label>
+            <label> Upload Image </label>
             <input
               type="file"
               accept="image/*"
