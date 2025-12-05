@@ -57,12 +57,15 @@ const handler = NextAuth({
   },
   callbacks: {
     async session({ session, token }) {
-      if (token) {
-        session.user.id = token.sub;
+      if (!session || !session.user || !token?.sub) {
+        return session;
       }
+
+      (session.user as any).id = token.sub as string;
       return session;
     },
   },
+
   secret: process.env.NEXTAUTH_SECRET,
 });
 
